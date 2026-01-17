@@ -15,25 +15,26 @@
                             bg: '#202020',
                             card: '#2c2c2c',
                             accent: '#60cdff',
-                            subtext: '#a0a0a0'
                             subtext: '#d0d0d0'
                         }
                     }
                 }
-@@ -29,11 +29,7 @@
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #202020; color: white; overflow-x: hidden; }
+        .glass-panel {
+            background: rgba(44, 44, 44, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        /* モーダル背景のぼかし */
-        #modal-overlay {
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
         }
         #modal-overlay { backdrop-filter: blur(8px); transition: all 0.3s ease; }
         .btn-disabled {
             background-color: #444 !important;
             color: #888 !important;
-@@ -42,101 +38,161 @@
+            cursor: not-allowed;
+            pointer-events: none;
         }
         .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -44,12 +45,9 @@
 
     <nav class="w-full py-6 px-8 flex justify-between items-center glass-panel sticky top-0 z-50">
         <div class="text-xl font-bold flex items-center gap-2">
-            <span class="bg-fluent-accent text-black rounded-lg px-2 py-1 text-sm font-extrabold">AI</span>
             <span class="bg-fluent-accent text-black rounded-lg px-2 py-1 text-xs font-extrabold tracking-tighter">BETA</span>
             putyo1253 Toolbox
         </div>
-        <div class="flex gap-6">
-            <a href="https://github.com/putyo1253" target="_blank" class="text-fluent-subtext hover:text-white transition">GitHub</a>
         <div class="hidden md:flex gap-8 text-sm font-medium">
             <a href="#apps" class="hover:text-fluent-accent transition">Apps</a>
             <a href="#features" class="hover:text-fluent-accent transition">Features</a>
@@ -57,71 +55,48 @@
         </div>
     </nav>
 
-    <header class="text-center py-20 px-4">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-fluent-accent pb-2">
-            Minecraft AI Tools
     <header class="text-center py-24 px-4">
         <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-fluent-accent pb-2">
             Minecraft AI Toolbox
         </h1>
-        <p class="text-xl text-fluent-subtext max-w-2xl mx-auto">
-            最新のAI技術を、あなたのマイクラ環境に。
         <p class="text-xl text-fluent-subtext max-w-2xl mx-auto leading-relaxed">
             Gemini 2.0 Flashの知能をマイクラに。<br>
             翻訳も、解析も、すべてAIが解決します。
         </p>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <div class="glass-panel p-8 rounded-3xl flex flex-col reveal active">
     <main id="apps" class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
         <div class="app-card glass-panel p-8 rounded-3xl flex flex-col reveal active">
             <div class="flex justify-between items-start mb-6">
                 <span class="bg-blue-500/20 text-fluent-accent px-3 py-1 rounded-full text-xs font-bold border border-blue-500/30">TRANSLATOR</span>
-                <span class="text-fluent-subtext text-xs tracking-widest uppercase">v1.2.0-beta</span>
                 <span class="text-fluent-subtext text-xs tracking-widest uppercase font-mono">v1.2.0-beta</span>
             </div>
             <h2 class="text-3xl font-bold mb-4">RP Translator</h2>
             <p class="text-fluent-subtext mb-8 flex-grow">
-                Gemini 2.0 Flash搭載。リソースパックの言語ファイルを文脈に合わせて一括翻訳します。
                 言語ファイルの文脈を読み取って自動翻訳。特殊コードを100%保護しながら、自然な日本語に変換します。
             </p>
             <button onclick="openModal('RP Translator', 'https://www.mediafire.com/file/6fauxp8o9d43uni/MinecraftRPTranslator.exe/file')" 
-                class="w-full bg-fluent-accent text-black font-bold py-4 rounded-xl hover:bg-white transition-all">
-                Download (.exe)
                 class="w-full bg-fluent-accent text-black font-bold py-4 rounded-xl hover:bg-white transition-all shadow-lg shadow-blue-500/10">
                 Download Beta (.exe)
             </button>
         </div>
 
-        <div class="glass-panel p-8 rounded-3xl flex flex-col reveal active border-t-2 border-fluent-accent/20">
         <div class="app-card glass-panel p-8 rounded-3xl flex flex-col reveal active border-t-2 border-fluent-accent/10">
             <div class="flex justify-between items-start mb-6">
                 <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-bold border border-green-500/30">ANALYZER</span>
-                <span class="text-fluent-subtext text-xs tracking-widest uppercase">v1.0.1-beta</span>
                 <span class="text-fluent-subtext text-xs tracking-widest uppercase font-mono">v1.0.1-beta</span>
             </div>
             <h2 class="text-3xl font-bold mb-4">Log Analyzer AI</h2>
             <p class="text-fluent-subtext mb-8 flex-grow">
-                クラッシュログを解析し、原因Modの特定と日本語による解決策を提示します。
                 クラッシュログをAIが診断。原因Modの特定から、具体的な解決策の提示までサポートします。
             </p>
-            <button onclick="openModal('Log Analyzer AI', 'https://www.mediafire.com/file/YOUR_LINK')" 
-                class="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-fluent-accent transition-all">
-                Download (.exe)
             <button onclick="openModal('Log Analyzer AI', '#')" 
                 class="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-fluent-accent transition-all shadow-lg">
                 Download Beta (.exe)
             </button>
         </div>
-
     </main>
 
-    <footer class="mt-20 py-12 text-center border-t border-white/5">
-        <div class="flex justify-center gap-8 mb-4">
-            <a href="https://x.com/putyo1253" class="text-fluent-subtext hover:text-white transition-all">X (Twitter)</a>
-            <a href="https://www.youtube.com/channel/UC3M151q3xQNrh_J6xxlrppw" class="text-fluent-subtext hover:text-white transition-all">YouTube</a>
     <section id="features" class="max-w-6xl mx-auto px-4 py-24 border-t border-white/5">
         <div class="text-center mb-16 reveal">
             <h2 class="text-4xl font-bold mb-4">Core Features</h2>
@@ -182,27 +157,16 @@
             
             <p class="text-[10px] text-gray-600 uppercase tracking-[0.2em]">Minecraft is a trademark of Mojang Synergies AB. Not an official product.</p>
         </div>
-        <p class="text-[10px] text-gray-600 uppercase tracking-widest">&copy; 2024 putyo1253</p>
     </footer>
 
-    <div id="modal-overlay" class="fixed inset-0 z-[100] hidden bg-black/80 flex items-center justify-center p-4">
-        <div class="glass-panel w-full max-w-lg rounded-3xl p-8 shadow-2xl scale-95 opacity-0 transition-all duration-300" id="modal-content">
     <div id="modal-overlay" class="fixed inset-0 z-[100] hidden bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
         <div class="glass-panel w-full max-w-lg rounded-3xl p-8 shadow-2xl scale-95 opacity-0 transition-all duration-300 relative" id="modal-content">
             <div class="flex justify-between items-center mb-6">
-                <h3 id="modal-title" class="text-2xl font-bold">Download Beta</h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
                 <h3 id="modal-title" class="text-2xl font-bold tracking-tight">Download Beta</h3>
                 <button onclick="closeModal()" class="text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
             </div>
 
             <div class="space-y-4 mb-8">
-                <div class="bg-black/40 p-4 rounded-xl text-xs text-fluent-subtext leading-relaxed border border-white/5">
-                    <p class="font-bold text-fluent-accent mb-2">利用規約 (Beta Terms)</p>
-                    <ul class="list-disc ml-4 space-y-1">
-                        <li>本ソフトはベータ版であり、不具合の可能性があります。</li>
-                        <li>二次配布（他サイトへの転載）を固く禁じます。</li>
-                        <li>個人のAPIキーの取り扱いは自己責任で行ってください。</li>
                 <div class="bg-black/40 p-5 rounded-xl text-[13px] text-fluent-subtext leading-relaxed border border-white/5">
                     <p class="font-bold text-fluent-accent mb-2">⚠ ベータ版利用規約 (Beta Terms)</p>
                     <ul class="list-disc ml-5 space-y-1">
@@ -212,14 +176,6 @@
                     </ul>
                 </div>
 
-                <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" id="check1" onchange="validate()" class="w-4 h-4 accent-fluent-accent">
-                    <span class="text-sm text-gray-300 group-hover:text-white">規約に同意し、自己責任で利用します</span>
-                </label>
-                <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" id="check2" onchange="validate()" class="w-4 h-4 accent-fluent-accent">
-                    <span class="text-sm text-gray-300 group-hover:text-white">二次配布を行わないことを約束します</span>
-                </label>
                 <div class="space-y-3">
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="checkbox" id="check1" onchange="validate()" class="w-4 h-4 rounded bg-gray-700 border-gray-600 accent-fluent-accent">
@@ -232,8 +188,6 @@
                 </div>
             </div>
 
-            <a id="final-dl-link" href="#" target="_blank" class="btn-disabled block w-full py-4 rounded-xl font-bold text-center transition-all">
-                Download Start
             <a id="final-dl-link" href="#" target="_blank" class="btn-disabled block w-full py-4 rounded-xl font-bold text-center transition-all duration-300">
                 Download Now
             </a>
@@ -242,11 +196,14 @@
         </div>
     </div>
 
-@@ -148,13 +204,14 @@
+    <script>
+        const overlay = document.getElementById('modal-overlay');
+        const content = document.getElementById('modal-content');
+        const dlLink = document.getElementById('final-dl-link');
+        const check1 = document.getElementById('check1');
         const check2 = document.getElementById('check2');
 
         function openModal(appName, url) {
-            document.getElementById('modal-title').innerText = appName + ' Beta';
             document.getElementById('modal-title').innerText = appName + ' Beta Access';
             dlLink.href = url;
             overlay.classList.remove('hidden');
@@ -258,7 +215,10 @@
         }
 
         function closeModal() {
-@@ -165,6 +222,7 @@
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
                 check1.checked = false;
                 check2.checked = false;
                 validate();
@@ -266,20 +226,22 @@
             }, 300);
         }
 
-@@ -178,16 +236,12 @@
+        function validate() {
+            if (check1.checked && check2.checked) {
+                dlLink.classList.remove('btn-disabled');
+                dlLink.classList.add('bg-fluent-accent', 'text-black', 'hover:bg-white', 'shadow-lg', 'shadow-blue-500/20');
+            } else {
+                dlLink.classList.add('btn-disabled');
+                dlLink.classList.remove('bg-fluent-accent', 'text-black', 'hover:bg-white', 'shadow-lg', 'shadow-blue-500/20');
             }
         }
 
-        // 背景クリックで閉じる
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) closeModal();
-        });
         overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
 
-        // 登場アニメーション
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
+</html>
